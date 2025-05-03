@@ -1,0 +1,48 @@
+#include <stdlib.h>
+#include <stdio.h>
+
+#define N 10
+
+int L[N] = {1,2,3,4,5,6,7,8,9,10};
+
+
+// -- escreva seu código abaixo dessa linha --- (e não altere esta linha)
+
+
+int main() {
+  int i;
+  int maior, menor, smaior, smenor, possmaior, possmenor;
+  maior=L[0];
+  menor=L[0];
+  smaior=L[0];
+  smenor=L[1];
+  possmaior=0;
+  possmenor=0;
+  for(i=1;i<N;i++){
+    if(L[i]>maior){
+      maior=L[i];
+    }
+    if(L[i]<menor){
+      menor=L[i];
+    }
+  }
+  for(i=0;i<N;i++){
+    if(L[i]>smaior && L[i]<maior){
+      smaior=L[i];
+      possmaior=i;
+    }
+    if(L[i]<smenor && L[i]>menor){
+      smenor=L[i];
+      possmenor=i;
+    }
+  }
+  printf("%d %d %d", smaior, smenor, menor);
+  for(i=0;i<N;i++){
+    int t=smaior;
+    L[possmaior]=smenor;
+    L[possmenor]=t;
+  }
+  
+
+
+}
